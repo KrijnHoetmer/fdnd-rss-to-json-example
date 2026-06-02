@@ -1,0 +1,14 @@
+<!doctype html>
+
+<h1>Data van Funda</h1>
+
+<details>
+  <summary>Debug</summary>
+  <pre>{{ headings | json: 4 }}</pre>
+</details>
+
+{% for heading in headings %}
+  <article>
+    <h2>{{ heading }}</h2>
+  </article>
+{%  endfor %}

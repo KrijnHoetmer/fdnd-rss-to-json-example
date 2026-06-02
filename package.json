@@ -20,6 +20,7 @@
   "dependencies": {
     "express": "^5.2.1",
     "feedsmith": "^2.9.4",
+    "jsdom": "^27.0.1",
     "liquidjs": "^10.27.0"
   }
 }
