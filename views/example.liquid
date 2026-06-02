@@ -1,0 +1,12 @@
+<h1>Data van Tweakers</h1>
+
+<details>
+  <summary>Debug</summary>
+  <pre>{{ items | json: 4 }}</pre>
+</details>
+
+{% for item in items %}
+  <article>
+    <h2>{{ item.item.children[0].title.content }}</h2>
+  </article>
+{%  endfor %}

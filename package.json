@@ -1,0 +1,25 @@
+{
+  "name": "fdnd-rss-to-json-example",
+  "version": "1.0.0",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "type":  "module",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KrijnHoetmer/fdnd-rss-to-json-example.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/KrijnHoetmer/fdnd-rss-to-json-example/issues"
+  },
+  "homepage": "https://github.com/KrijnHoetmer/fdnd-rss-to-json-example#readme",
+  "description": "",
+  "dependencies": {
+    "express": "^5.2.1",
+    "liquidjs": "^10.27.0",
+    "simple-xml-to-json": "^1.2.7"
+  }
+}
