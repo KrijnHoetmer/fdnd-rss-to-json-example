@@ -7,6 +7,7 @@
 
 {% for item in items %}
   <article>
-    <h2>{{ item.item.children[0].title.content }}</h2>
+    <h2>{{ item.title }}</h2>
+    <p>{{ item.description }}</p>
   </article>
 {%  endfor %}

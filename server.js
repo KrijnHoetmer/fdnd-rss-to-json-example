@@ -2,7 +2,7 @@ import express from 'express'
 
 import { Liquid } from 'liquidjs'
 
-import { convertXML } from 'simple-xml-to-json'
+import { parseFeed } from 'feedsmith'
 
 const app = express()
 
@@ -16,16 +16,10 @@ app.get('/', async function (request, response) {
   const tweakersResponse = await fetch('https://tweakers.net/feeds/mixed.xml')
   const tweakersResponseXML = await tweakersResponse.text()
 
-  const tweakersResponseJSON = convertXML(tweakersResponseXML)
-  // console.log(tweakersResponseJSON) // Om te debuggen
+  const { format, feed } = parseFeed(tweakersResponseXML)
+  // console.log(feed) // Om te debuggen
 
-  const items = tweakersResponseJSON.rss.children[0].channel.children.filter(function(child) {
-    return Object.hasOwn(child, 'item')
-  })
-
-  console.log(items)
-
-  response.render('example.liquid', {items: items})
+  response.render('example.liquid', {items: feed.items})
 })
 
 app.listen(8123, function () {

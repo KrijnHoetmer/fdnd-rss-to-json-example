@@ -5,7 +5,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "type":  "module",
+  "type": "module",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/KrijnHoetmer/fdnd-rss-to-json-example.git"
@@ -19,7 +19,7 @@
   "description": "",
   "dependencies": {
     "express": "^5.2.1",
-    "liquidjs": "^10.27.0",
-    "simple-xml-to-json": "^1.2.7"
+    "feedsmith": "^2.9.4",
+    "liquidjs": "^10.27.0"
   }
 }
