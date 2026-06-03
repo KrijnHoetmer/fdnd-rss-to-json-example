@@ -13,16 +13,52 @@ app.engine('liquid', engine.express())
 
 app.set('views', './views')
 
-app.get('/tweakers', async function (request, response) {
+app.get('/tweakers/:categorie', async function (request, response) {
 
-  const tweakersResponse = await fetch('https://tweakers.net/feeds/mixed.xml')
+  const tweakersResponse = await fetch('https://gathering.tweakers.net/rss/list_topics/' + request.params.categorie)
   const tweakersResponseXML = await tweakersResponse.text()
 
   const { format, feed } = parseFeed(tweakersResponseXML)
-  // console.log(feed) // Om te debuggen
+  console.log(feed) // Om te debuggen
 
-  response.render('tweakers.liquid', {items: feed.items})
+  const items = []
+  for (const item of feed.items) {
+    items.push({
+      title: item.title,
+      link: item.link,
+      replies: Number(item.description.substring(9, item.description.indexOf('\n')))
+    })
+  }
+
+  items.sort(function(a, b) {
+   if (a.replies < b.replies) {
+    return 1;
+   } else if (a.replies > b.replies) {
+    return -1;
+   }
+   return 0;
+  })
+
+  // console.log(items)
+
+  response.render('tweakers.liquid', {item: items[0]})
 })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 app.get('/funda', async function (request, response) {
 

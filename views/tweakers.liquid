@@ -4,12 +4,16 @@
 
 <details>
   <summary>Debug</summary>
-  <pre>{{ items | json: 4 }}</pre>
+  <pre>{{ item | json: 4 }}</pre>
 </details>
+<nav>
+  <a href="/tweakers/7">Moederborden</a>
+  <a href="/tweakers/4">Internet &amp; Hosting</a>
+  <a href="/tweakers/127">AI</a>
+</nav>
 
-{% for item in items %}
+
   <article>
-    <h2>{{ item.title }}</h2>
-    <p>{{ item.description }}</p>
+    <h2><a href="{{ item.link }}">{{ item.title }}</a></h2>
+    <p>{{ item.replies }}</p>
   </article>
-{%  endfor %}
